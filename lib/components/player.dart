@@ -8,6 +8,7 @@ import 'package:flame/components.dart';
 import 'package:dino02/components/character.dart';
 import 'package:dino02/utils/create_animation_by_limit.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/src/services/raw_keyboard.dart';
 
 class PlayerBody extends BodyComponent with KeyboardHandler, ContactCallbacks {
@@ -55,7 +56,7 @@ class PlayerBody extends BodyComponent with KeyboardHandler, ContactCallbacks {
   }
 
   @override
-  bool onKeyEvent(RawKeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
+  bool onKeyEvent(KeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
     if (keysPressed.isEmpty) {
       if (_inGround) movementType = MovementType.idle;
       _playerMove = Vector2.all(0);
